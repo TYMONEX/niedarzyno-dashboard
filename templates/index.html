@@ -129,6 +129,51 @@
         message.addEventListener("input", () => {
             counter.textContent = `${message.value.length} / 300`;
         });
+        const discordStatus = document.getElementById("discord-status");
+const discordStatusText = document.getElementById("discord-status-text");
+
+const discordServerId = "1297975268904013975";
+
+function getOnlineText(count) {
+    if (count === 1) {
+        return "1 OSOBA ONLINE";
+    }
+
+    return `${count} OSÓB ONLINE`;
+}
+
+async function updateDiscordStatus() {
+    try {
+        const response = await fetch(
+            `https://discord.com/api/guilds/${discordServerId}/widget.json`,
+            {
+                cache: "no-store"
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(`Discord API: ${response.status}`);
+        }
+
+        const data = await response.json();
+        const onlineCount = data.presence_count ?? 0;
+
+        discordStatusText.textContent = getOnlineText(onlineCount);
+
+        discordStatus.classList.remove("status-offline");
+        discordStatus.classList.add("status-online");
+    } catch (error) {
+        console.error("Nie udało się pobrać statusu Discorda:", error);
+
+        discordStatusText.textContent = "SERWER DISCORD";
+        discordStatus.classList.remove("status-online");
+        discordStatus.classList.add("status-offline");
+    }
+}
+
+updateDiscordStatus();
+
+window.setInterval(updateDiscordStatus, 60000);
     </script>
 </body>
 </html>
