@@ -563,15 +563,17 @@ Niedarzyno Dashboard
 
 
 
+<div id="discordBox" style="display:none;">
+
 <a class="discord"
-
 href="https://discord.gg/dkZPcMeqMD"
-
 target="_blank">
 
 💬 DISCORD
 
 </a>
+
+</div>
 
 
 
@@ -662,6 +664,12 @@ video.volume=0.25;
 
 
 video.play();
+
+setTimeout(()=>{
+
+document.getElementById("discordBox").style.display="block";
+
+},4800);
 
 
 
