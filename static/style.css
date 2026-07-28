@@ -136,3 +136,86 @@ input:focus, textarea:focus { border-color: #8e74ff; box-shadow: 0 0 0 4px rgba(
     .form-panel { padding: 22px 17px; }
     .comment-meta { align-items: flex-start; flex-direction: column; gap: 5px; }
 }
+
+/* POPRAWKA WARSTW: FILM, START I STRONA */
+
+body {
+    position: relative;
+    background: #050507;
+}
+
+/* Film zawsze widoczny jako najniższa warstwa strony */
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    object-fit: cover;
+    object-position: center center;
+
+    z-index: 0;
+}
+
+/* Przyciemnienie bezpośrednio nad filmem */
+.background-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 3, 7, 0.72),
+            rgba(3, 3, 7, 0.28) 55%,
+            rgba(3, 3, 7, 0.58)
+        ),
+        linear-gradient(
+            180deg,
+            rgba(3, 3, 7, 0.08),
+            rgba(3, 3, 7, 0.68)
+        );
+}
+
+/* Strona główna nad filmem */
+main {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ekran startowy nad wszystkim */
+#start-screen {
+    position: fixed;
+    inset: 0;
+
+    z-index: 9999;
+
+    display: grid;
+    place-items: center;
+
+    padding: 24px;
+
+    background: rgba(3, 3, 6, 0.35);
+
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+/* Przed kliknięciem START ukrywa stronę główną */
+body.locked main {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Po kliknięciu START pokazuje stronę */
+body:not(.locked) main {
+    opacity: 1;
+    visibility: visible;
+
+    transition: opacity 0.8s ease;
+}
