@@ -72,6 +72,9 @@ WEJDŹ
 
 <!-- MAIN -->
 
+<div class="container">
+
+
 <div class="card">
 
 
@@ -86,8 +89,90 @@ Witaj na stronie Niedarzyno
 
 
 <div class="status">
-
 🟢 ONLINE
+</div>
+
+
+<a class="discord"
+href="https://discord.gg/dkZPcMeqMD"
+target="_blank">
+💬 DISCORD
+</a>
+
+
+<h2>
+✍️ Napisz komentarz
+</h2>
+
+
+<form method="POST">
+
+<input 
+class="name-input"
+type="text"
+name="name"
+placeholder="Twój nick"
+required>
+
+
+<textarea
+name="message"
+placeholder="Napisz komentarz..."
+required></textarea>
+
+
+<button>
+DODAJ KOMENTARZ
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+<div class="comments-box">
+
+
+<h2>
+💬 Komentarze
+</h2>
+
+
+<div class="comments">
+
+
+{% for comment in comments %}
+
+<div class="comment">
+
+<h3>
+👤 {{comment[0]}}
+</h3>
+
+<p>
+{{comment[1]}}
+</p>
+
+<small>
+🕒 {{comment[2]}}
+</small>
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
+
+
+</div>
+
 
 </div>
 
