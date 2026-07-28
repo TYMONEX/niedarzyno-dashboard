@@ -22,8 +22,25 @@ button, input, textarea { font: inherit; }
 }
 
 .background-overlay {
-    position: fixed; inset: 0; z-index: -2; pointer-events: none;
-    background: linear-gradient(90deg, rgba(3,3,7,.9), rgba(3,3,7,.48) 58%, rgba(3,3,7,.7)), linear-gradient(180deg, transparent 45%, rgba(3,3,7,.9));
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 3, 7, 0.72),
+            rgba(3, 3, 7, 0.30) 58%,
+            rgba(3, 3, 7, 0.50)
+        ),
+        linear-gradient(
+            180deg,
+            rgba(3, 3, 7, 0.05) 35%,
+            rgba(3, 3, 7, 0.50)
+        );
+}
 }
 
 #start-screen {
