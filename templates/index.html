@@ -2,19 +2,12 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-    <meta
-        name="description"
-        content="Oficjalna strona Niedarzyno"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oficjalna strona Niedarzyno">
 
     <title>Niedarzyno</title>
 
-     }}"
-    >
+    /static/style.css
 </head>
 
 <body class="locked">
@@ -28,15 +21,12 @@
         playsinline
         preload="auto"
     >
-         }}"
-            type="video/mp4"
-        >
+        /static/edit.mp4
     </video>
 
-    <!-- Przyciemnienie filmu -->
     <div class="background-overlay" aria-hidden="true"></div>
 
-    <!-- Przycisk dźwięku -->
+    <!-- Przycisk wyciszania -->
     <button
         id="sound-button"
         class="sound-button"
@@ -49,44 +39,28 @@
 
     <!-- Ekran startowy -->
     <div id="start-screen">
-
         <div class="start-box">
-
-            <p class="eyebrow">
-                OFICJALNA STRONA
-            </p>
+            <p class="eyebrow">OFICJALNA STRONA</p>
 
             <h1>NIEDARZYNO</h1>
 
-            <p>
-                Kliknij START, aby wejść i włączyć dźwięk.
-            </p>
+            <p>Kliknij START, aby wejść i włączyć dźwięk.</p>
 
-            <button
-                id="start-button"
-                type="button"
-            >
+            <button id="start-button" type="button">
                 <span>START</span>
                 <span aria-hidden="true">↗</span>
             </button>
-
         </div>
-
     </div>
 
-    <!-- Główna zawartość -->
+    <!-- Główna strona -->
     <main>
 
-        <!-- Sekcja główna -->
         <section class="hero">
-
             <div class="hero-content">
 
                 <!-- Status Discorda -->
-                <div
-                    id="discord-status"
-                    class="status"
-                >
+                <div id="discord-status" class="status">
                     <span id="discord-status-text">
                         SPRAWDZANIE...
                     </span>
@@ -103,7 +77,6 @@
                 </p>
 
                 <div class="hero-actions">
-
                     <a
                         class="discord-button"
                         href="https://discord.gg/dkZPcMeqMD"
@@ -116,45 +89,30 @@
                     #comments
                         KOMENTARZE ↓
                     </a>
-
                 </div>
 
             </div>
-
         </section>
 
-        <!-- Sekcja komentarzy -->
-        <section
-            id="comments"
-            class="comments-section"
-        >
+        <!-- Komentarze -->
+        <section id="comments" class="comments-section">
 
             <header class="section-header">
-
                 <div>
-
-                    <p class="eyebrow">
-                        SPOŁECZNOŚĆ
-                    </p>
-
+                    <p class="eyebrow">SPOŁECZNOŚĆ</p>
                     <h2>Komentarze</h2>
-
                 </div>
 
                 <span class="comment-count">
                     {{ comments|length }}
                 </span>
-
             </header>
 
             <div class="comments-grid">
 
-                <!-- Formularz komentarza -->
+                <!-- Formularz -->
                 <div class="form-panel">
-
-                    <p class="eyebrow">
-                        DODAJ WPIS
-                    </p>
+                    <p class="eyebrow">DODAJ WPIS</p>
 
                     <h3>Zostaw komentarz</h3>
 
@@ -162,9 +120,7 @@
                         Napisz kilka słów i dołącz do społeczności Niedarzyno.
                     </p>
 
-                     }}"
-                    >
-
+                    /
                         <label for="name">
                             TWÓJ NICK
                         </label>
@@ -180,7 +136,6 @@
                         >
 
                         <div class="label-row">
-
                             <label for="message">
                                 KOMENTARZ
                             </label>
@@ -188,7 +143,6 @@
                             <span id="counter">
                                 0 / 300
                             </span>
-
                         </div>
 
                         <textarea
@@ -203,17 +157,10 @@
                             class="submit-button"
                             type="submit"
                         >
-                            <span>
-                                OPUBLIKUJ KOMENTARZ
-                            </span>
-
-                            <span aria-hidden="true">
-                                →
-                            </span>
+                            <span>OPUBLIKUJ KOMENTARZ</span>
+                            <span aria-hidden="true">→</span>
                         </button>
-
                     </form>
-
                 </div>
 
                 <!-- Lista komentarzy -->
@@ -224,15 +171,12 @@
                         {% for comment in comments %}
 
                             <article class="comment">
-
                                 <div class="avatar">
                                     {{ comment["name"][0]|upper }}
                                 </div>
 
                                 <div class="comment-content">
-
                                     <div class="comment-meta">
-
                                         <h3>
                                             {{ comment["name"] }}
                                         </h3>
@@ -240,15 +184,12 @@
                                         <time>
                                             {{ comment["date"] }}
                                         </time>
-
                                     </div>
 
                                     <p>
                                         {{ comment["message"] }}
                                     </p>
-
                                 </div>
-
                             </article>
 
                         {% endfor %}
@@ -256,19 +197,11 @@
                     {% else %}
 
                         <div class="empty-state">
+                            <span aria-hidden="true">✦</span>
 
-                            <span aria-hidden="true">
-                                ✦
-                            </span>
+                            <h3>Jeszcze tu pusto</h3>
 
-                            <h3>
-                                Jeszcze tu pusto
-                            </h3>
-
-                            <p>
-                                Dodaj pierwszy komentarz.
-                            </p>
-
+                            <p>Dodaj pierwszy komentarz.</p>
                         </div>
 
                     {% endif %}
@@ -276,7 +209,6 @@
                 </div>
 
             </div>
-
         </section>
 
     </main>
@@ -312,16 +244,8 @@
         const discordServerId =
             "1297975268904013975";
 
-
-        /*
-         * Domyślna głośność filmu: 25%.
-         */
         video.volume = 0.25;
 
-
-        /*
-         * Aktualizuje ikonę i opis przycisku dźwięku.
-         */
         function updateSoundButton() {
             const isMuted = video.muted;
 
@@ -337,86 +261,58 @@
                 isMuted ? "Włącz dźwięk" : "Wycisz dźwięk"
             );
 
-            soundButton.classList.toggle(
-                "muted",
-                isMuted
-            );
+            soundButton.classList.toggle("muted", isMuted);
         }
 
+        startButton.addEventListener("click", async function () {
+            startButton.disabled = true;
 
-        /*
-         * Kliknięcie START.
-         */
-        startButton.addEventListener(
-            "click",
-            async function () {
-                startButton.disabled = true;
+            video.muted = false;
+            video.volume = 0.25;
 
-                video.muted = false;
+            try {
+                await video.play();
+            } catch (error) {
+                console.error(
+                    "Nie udało się uruchomić filmu:",
+                    error
+                );
+            }
+
+            updateSoundButton();
+
+            startScreen.classList.add("hidden");
+            document.body.classList.remove("locked");
+
+            window.setTimeout(function () {
+                startScreen.remove();
+            }, 650);
+        });
+
+        soundButton.addEventListener("click", async function () {
+            video.muted = !video.muted;
+
+            if (!video.muted) {
                 video.volume = 0.25;
 
                 try {
                     await video.play();
                 } catch (error) {
                     console.error(
-                        "Nie udało się uruchomić filmu z dźwiękiem:",
+                        "Nie udało się włączyć dźwięku:",
                         error
                     );
                 }
-
-                updateSoundButton();
-
-                startScreen.classList.add("hidden");
-                document.body.classList.remove("locked");
-
-                window.setTimeout(function () {
-                    startScreen.remove();
-                }, 650);
             }
-        );
 
+            updateSoundButton();
+        });
 
-        /*
-         * Wyciszanie i włączanie dźwięku.
-         */
-        soundButton.addEventListener(
-            "click",
-            async function () {
-                video.muted = !video.muted;
+        message.addEventListener("input", function () {
+            counter.textContent =
+                message.value.length + " / 300";
+        });
 
-                if (!video.muted) {
-                    video.volume = 0.25;
-
-                    try {
-                        await video.play();
-                    } catch (error) {
-                        console.error(
-                            "Nie udało się włączyć dźwięku:",
-                            error
-                        );
-                    }
-                }
-
-                updateSoundButton();
-            }
-        );
-
-
-        /*
-         * Licznik znaków komentarza.
-         */
-        message.addEventListener(
-            "input",
-            function () {
-                counter.textContent =
-                    message.value.length + " / 300";
-            }
-        );
-
-
-        /*
-         * Poprawna odmiana liczby osób online.
-         */
         function getOnlineText(count) {
             if (count === 1) {
                 return "1 OSOBA ONLINE";
@@ -428,10 +324,7 @@
             if (
                 lastDigit >= 2 &&
                 lastDigit <= 4 &&
-                !(
-                    lastTwoDigits >= 12 &&
-                    lastTwoDigits <= 14
-                )
+                !(lastTwoDigits >= 12 && lastTwoDigits <= 14)
             ) {
                 return count + " OSOBY ONLINE";
             }
@@ -439,10 +332,6 @@
             return count + " OSÓB ONLINE";
         }
 
-
-        /*
-         * Pobieranie liczby osób online z widgetu Discorda.
-         */
         async function updateDiscordStatus() {
             try {
                 const response = await fetch(
@@ -461,9 +350,7 @@
                 }
 
                 const data = await response.json();
-
-                const onlineCount =
-                    data.presence_count ?? 0;
+                const onlineCount = data.presence_count ?? 0;
 
                 discordStatusText.textContent =
                     getOnlineText(onlineCount);
@@ -475,7 +362,6 @@
                 discordStatus.classList.add(
                     "status-online"
                 );
-
             } catch (error) {
                 console.error(
                     "Nie udało się pobrać statusu Discorda:",
@@ -495,17 +381,9 @@
             }
         }
 
-
-        /*
-         * Pierwsze ustawienie ikony i statusu.
-         */
         updateSoundButton();
         updateDiscordStatus();
 
-
-        /*
-         * Aktualizacja Discorda co 60 sekund.
-         */
         window.setInterval(
             updateDiscordStatus,
             60000
