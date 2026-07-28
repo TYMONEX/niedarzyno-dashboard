@@ -100,6 +100,66 @@ target="_blank">
 
 </a>
 
+<h2>
+💬 Komentarze
+</h2>
+
+
+<form method="POST">
+
+<input 
+type="text"
+name="name"
+placeholder="Twój nick"
+required>
+
+
+<textarea
+name="message"
+placeholder="Napisz komentarz..."
+required></textarea>
+
+
+<button>
+DODAJ KOMENTARZ
+</button>
+
+
+</form>
+
+
+
+<div class="comments">
+
+
+{% for comment in comments %}
+
+
+<div class="comment">
+
+
+<h3>
+👤 {{comment[0]}}
+</h3>
+
+
+<p>
+{{comment[1]}}
+</p>
+
+
+<small>
+🕒 {{comment[2]}}
+</small>
+
+
+</div>
+
+
+{% endfor %}
+
+
+</div>
 
 
 </div>
