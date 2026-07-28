@@ -68,8 +68,7 @@ button, input, textarea { font: inherit; }
 
 .hero { width: min(1220px, calc(100% - 48px)); min-height: 100vh; margin: auto; display: flex; align-items: center; }
 .hero-content { max-width: 850px; padding: 80px 0; }
-.status { width: fit-content; margin-bottom: 45px; padding: 9px 13px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(72,229,150,.25); border-radius: 999px; color: #80f0b3; background: rgba(72,229,150,.08); font-size: 10px; font-weight: 800; letter-spacing: .13em; }
-.status span { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 12px var(--green); }
+.status { width: fit-content; margin-bottom: 45px; padding: 9px 13px; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(72,229,150,.25); border-radius: 999px; color: #80f0b3; background: rgba(72,229,150,.08); font-size: 10px; font-weight: 800; letter-spacing: .13em;
 .hero h1 { margin-top: 18px; font-size: clamp(68px, 12vw, 145px); line-height: .8; }
 .lead { max-width: 520px; margin-top: 38px; color: #b5b5bf; font-size: 17px; line-height: 1.7; }
 .hero-actions { margin-top: 35px; display: flex; flex-wrap: wrap; gap: 14px; }
@@ -218,4 +217,63 @@ body:not(.locked) main {
     visibility: visible;
 
     transition: opacity 0.8s ease;
+}
+/* POPRAWKA STATUSU DISCORDA */
+
+.status {
+    width: fit-content;
+    min-width: 0;
+    min-height: 36px;
+
+    margin-bottom: 45px;
+    padding: 9px 14px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    color: #80f0b3;
+
+    border: 1px solid rgba(72, 229, 150, 0.28);
+    border-radius: 999px;
+
+    background: rgba(72, 229, 150, 0.1);
+
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.09em;
+
+    white-space: nowrap;
+}
+
+/* Resetuje błędne style nakładane na tekst */
+.status #discord-status-text {
+    width: auto;
+    height: auto;
+
+    display: inline;
+
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+
+    white-space: nowrap;
+}
+
+/* Tylko ten element jest zieloną kropką */
+.status .status-dot {
+    width: 7px;
+    height: 7px;
+
+    display: block;
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+
+    background: #48e596;
+    box-shadow: 0 0 12px #48e596;
+
+    animation: status-pulse 1.5s infinite alternate ease-in-out;
 }
