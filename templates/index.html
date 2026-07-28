@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Niedarzyno</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+
+<body>
+
+
+<video id="bg" autoplay muted loop>
+
+<source src="/static/edit.mp4" type="video/mp4">
+
+</video>
+
+
+<div class="box">
+
+<h1>
+🕷️ NIEDARZYNO
+</h1>
+
+
+<p>
+Witaj na stronie Niedarzyno
+</p>
+
+
+<a class="discord"
+href="https://discord.gg/dkZPcMeqMD">
+
+💬 DISCORD
+
+</a>
+
+
+
+<h2>
+Komentarze 🕷️
+</h2>
+
+
+<form method="POST">
+
+<input 
+name="name"
+placeholder="Twój nick"
+required>
+
+
+<textarea
+name="message"
+placeholder="Komentarz"
+required></textarea>
+
+
+<button>
+DODAJ
+</button>
+
+</form>
+
+
+
+{% for comment in comments %}
+
+<div class="comment">
+
+<b>
+{{comment[0]}}
+</b>
+
+<p>
+{{comment[1]}}
+</p>
+
+<small>
+{{comment[2]}}
+</small>
+
+</div>
+
+{% endfor %}
+
+
+</div>
+
+
+</body>
+
+</html>
