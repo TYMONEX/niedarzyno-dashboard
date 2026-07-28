@@ -313,6 +313,11 @@ to{
 
 opacity:0;
 
+.name-input {
+    margin-top: 0px;
+    transform: translateY(-10px);
+}
+
 }
 
 
