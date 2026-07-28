@@ -13,18 +13,71 @@
 <body>
 
 
-<video id="bg" autoplay muted loop>
+<video id="bg" loop>
 
 <source src="/static/edit.mp4" type="video/mp4">
 
 </video>
 
 
-<div class="box">
+<div class="overlay"></div>
+
+
+
+<!-- START PANEL -->
+
+<div id="start">
+
+<div class="start-box">
+
 
 <h1>
 🕷️ NIEDARZYNO
 </h1>
+
+
+<p id="loading">
+INITIALIZING SYSTEM...
+</p>
+
+
+
+<div class="bar">
+
+<div id="progress"></div>
+
+</div>
+
+
+<p id="percent">
+0%
+</p>
+
+
+
+<button id="enter" onclick="enter()">
+
+WEJDŹ
+
+</button>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- MAIN -->
+
+<div class="card">
+
+
+<h2>
+🕷️ NIEDARZYNO
+</h2>
 
 
 <p>
@@ -32,8 +85,16 @@ Witaj na stronie Niedarzyno
 </p>
 
 
+<div class="status">
+
+🟢 ONLINE
+
+</div>
+
+
 <a class="discord"
-href="https://discord.gg/dkZPcMeqMD">
+href="https://discord.gg/dkZPcMeqMD"
+target="_blank">
 
 💬 DISCORD
 
@@ -41,55 +102,100 @@ href="https://discord.gg/dkZPcMeqMD">
 
 
 
-<h2>
-Komentarze 🕷️
-</h2>
-
-
-<form method="POST">
-
-<input 
-name="name"
-placeholder="Twój nick"
-required>
-
-
-<textarea
-name="message"
-placeholder="Komentarz"
-required></textarea>
-
-
-<button>
-DODAJ
-</button>
-
-</form>
-
-
-
-{% for comment in comments %}
-
-<div class="comment">
-
-<b>
-{{comment[0]}}
-</b>
-
-<p>
-{{comment[1]}}
-</p>
-
-<small>
-{{comment[2]}}
-</small>
-
 </div>
 
-{% endfor %}
 
 
-</div>
+
+
+<script>
+
+
+let progress = 0;
+
+let bar = document.getElementById("progress");
+
+let percent = document.getElementById("percent");
+
+let loading = document.getElementById("loading");
+
+let btn = document.getElementById("enter");
+
+
+
+btn.style.display="none";
+
+
+
+let load = setInterval(()=>{
+
+
+progress += Math.floor(Math.random()*10)+5;
+
+
+
+if(progress >= 100){
+
+progress=100;
+
+clearInterval(load);
+
+
+loading.innerHTML="SYSTEM READY";
+
+btn.style.display="inline-block";
+
+
+}
+
+
+
+bar.style.width=progress+"%";
+
+percent.innerHTML=progress+"%";
+
+
+},300);
+
+
+
+
+
+
+function enter(){
+
+
+let start=document.getElementById("start");
+
+
+start.style.animation="fadeout 1s";
+
+
+
+let video=document.getElementById("bg");
+
+
+video.volume=0.3;
+
+video.muted=false;
+
+video.play();
+
+
+
+setTimeout(()=>{
+
+start.style.display="none";
+
+},1000);
+
+
+
+}
+
+
+
+</script>
 
 
 </body>
