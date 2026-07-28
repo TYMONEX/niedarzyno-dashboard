@@ -6,6 +6,7 @@
     <meta name="description" content="Oficjalna strona Niedarzyno">
     <title>Niedarzyno</title>
     <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/reactions.css">
 </head>
 <body class="locked">
 
@@ -103,6 +104,17 @@
                                         <time>{{ comment["date"] }}</time>
                                     </div>
                                     <p>{{ comment["message"] }}</p>
+
+                                    <button
+                                        class="like-button"
+                                        type="button"
+                                        data-comment-id="{{ comment['id'] }}"
+                                        aria-label="Polub komentarz"
+                                        aria-pressed="false"
+                                    >
+                                        <span class="like-heart" aria-hidden="true">♡</span>
+                                        <span class="like-count">{{ comment["likes"] }}</span>
+                                    </button>
                                 </div>
                             </article>
                         {% endfor %}
@@ -206,6 +218,77 @@
                 discordStatus.classList.add("status-offline");
             }
         }
+
+        function getVoterId() {
+            let voterId = localStorage.getItem("niedarzyno-voter-id");
+
+            if (!voterId) {
+                voterId = window.crypto && crypto.randomUUID
+                    ? crypto.randomUUID()
+                    : Date.now().toString(36) + Math.random().toString(36).slice(2);
+                localStorage.setItem("niedarzyno-voter-id", voterId);
+            }
+
+            return voterId;
+        }
+
+        const voterId = getVoterId();
+        const likedCommentsKey = "niedarzyno-liked-comments";
+
+        function readLikedComments() {
+            try {
+                return new Set(JSON.parse(localStorage.getItem(likedCommentsKey) || "[]"));
+            } catch {
+                return new Set();
+            }
+        }
+
+        function saveLikedComments(likedComments) {
+            localStorage.setItem(likedCommentsKey, JSON.stringify([...likedComments]));
+        }
+
+        const likedComments = readLikedComments();
+
+        document.querySelectorAll(".like-button").forEach((button) => {
+            const commentId = String(button.dataset.commentId);
+            const heart = button.querySelector(".like-heart");
+
+            if (likedComments.has(commentId)) {
+                button.classList.add("liked");
+                button.setAttribute("aria-pressed", "true");
+                heart.textContent = "♥";
+            }
+
+            button.addEventListener("click", async () => {
+                if (button.disabled) return;
+                button.disabled = true;
+
+                try {
+                    const response = await fetch(`/api/comments/${commentId}/like`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ voter_id: voterId })
+                    });
+
+                    if (!response.ok) throw new Error("Błąd reakcji: " + response.status);
+
+                    const data = await response.json();
+                    button.querySelector(".like-count").textContent = data.likes;
+                    button.classList.toggle("liked", data.liked);
+                    button.setAttribute("aria-pressed", data.liked ? "true" : "false");
+                    heart.textContent = data.liked ? "♥" : "♡";
+
+                    if (data.liked) likedComments.add(commentId);
+                    else likedComments.delete(commentId);
+
+                    saveLikedComments(likedComments);
+                } catch (error) {
+                    console.error("Nie udało się zapisać reakcji:", error);
+                } finally {
+                    button.disabled = false;
+                }
+            });
+        });
 
         updateSoundButton();
         updateDiscordStatus();
