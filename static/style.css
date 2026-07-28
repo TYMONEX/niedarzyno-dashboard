@@ -373,9 +373,23 @@ margin-bottom:10px;
 opacity:.7;
 
 }
+
 form input,
 form textarea {
     display: block;
     width: 90%;
     margin: 10px auto;
+}
+
+
+form button {
+    width: 90%;
+    padding: 15px;
+    font-size: 20px;
+}
+
+
+form,
+.comments {
+    margin-top: 20px;
 }
