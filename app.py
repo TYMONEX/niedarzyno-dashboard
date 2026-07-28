@@ -1,87 +1,11 @@
-from flask import Flask, render_template, request, redirect
-import sqlite3
-from datetime import datetime
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-def init_db():
-    conn = sqlite3.connect("comments.db")
-    cursor = conn.cursor()
-
-    cursor.execute("""
-    CREATE TABLE IF NOT EXISTS comments (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        message TEXT NOT NULL,
-        date TEXT NOT NULL
-    )
-    """)
-
-    conn.commit()
-    conn.close()
-
-
-init_db()
-
-
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def home():
-
-    if request.method == "POST":
-
-        name = request.form["name"]
-        message = request.form["message"]
-
-        if len(name) > 30:
-            name = name[:30]
-
-        if len(message) > 300:
-            message = message[:300]
-
-
-        conn = sqlite3.connect("comments.db")
-        cursor = conn.cursor()
-
-        cursor.execute(
-            """
-            INSERT INTO comments(name,message,date)
-            VALUES(?,?,?)
-            """,
-            (
-                name,
-                message,
-                datetime.now().strftime("%d.%m.%Y %H:%M")
-            )
-        )
-
-        conn.commit()
-        conn.close()
-
-        return redirect("/")
-
-
-    conn = sqlite3.connect("comments.db")
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        SELECT name,message,date 
-        FROM comments 
-        ORDER BY id DESC
-        """
-    )
-
-    comments = cursor.fetchall()
-
-    conn.close()
-
-
-    return render_template(
-        "index.html",
-        comments=comments
-    )
-
+    return render_template("index.html")
 
 
 if __name__ == "__main__":
