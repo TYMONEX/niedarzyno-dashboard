@@ -2,16 +2,7 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Oficjalna strona Niedarzyno"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Niedarzyno</title>
 
@@ -21,7 +12,7 @@
 
 <body class="locked">
 
-    <!-- FILM W TLE -->
+    <!-- Film w tle -->
     <video
         id="background-video"
         autoplay
@@ -38,7 +29,7 @@
     <div class="video-shade"></div>
     <div class="video-noise"></div>
 
-    <!-- EKRAN STARTOWY -->
+    <!-- Ekran startowy -->
     <div id="start-screen">
         <div class="start-content">
             <div class="start-symbol">N</div>
@@ -62,12 +53,12 @@
         </p>
     </div>
 
-    <!-- GŁÓWNA STRONA -->
+    <!-- Strona główna -->
     <main id="main-page">
 
-        <!-- GÓRNA SEKCJA -->
         <section class="hero">
             <div class="hero-content">
+
                 <div class="online-status">
                     <span class="online-dot"></span>
                     ONLINE
@@ -90,7 +81,7 @@
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <span class="discord-icon">◉</span>
+                        <span class="discord-icon">●</span>
                         DOŁĄCZ DO DISCORDA
                     </a>
 
@@ -107,8 +98,9 @@
             </div>
         </section>
 
-        <!-- KOMENTARZE -->
+        <!-- Sekcja komentarzy -->
         <section id="comments" class="comments-section">
+
             <div class="section-heading">
                 <div>
                     <p class="section-label">SPOŁECZNOŚĆ</p>
@@ -122,7 +114,7 @@
 
             <div class="comments-layout">
 
-                <!-- FORMULARZ -->
+                <!-- Formularz -->
                 <div class="comment-form-card">
                     <p class="card-label">DODAJ WPIS</p>
 
@@ -132,7 +124,8 @@
                         Napisz kilka słów i dołącz do społeczności Niedarzyno.
                     </p>
 
-                    <form method="POST">
+                     }}">
+
                         <div class="field">
                             <label for="name">TWÓJ NICK</label>
 
@@ -163,13 +156,13 @@
                         </div>
 
                         <button class="submit-button" type="submit">
-                            OPUBLIKUJ KOMENTARZ
+                            <span>OPUBLIKUJ KOMENTARZ</span>
                             <span>→</span>
                         </button>
                     </form>
                 </div>
 
-                <!-- LISTA KOMENTARZY -->
+                <!-- Lista komentarzy -->
                 <div class="comments-list">
 
                     {% if comments %}
@@ -200,9 +193,7 @@
 
                             <h3>Jeszcze tu pusto</h3>
 
-                            <p>
-                                Dodaj pierwszy komentarz.
-                            </p>
+                            <p>Dodaj pierwszy komentarz.</p>
                         </div>
 
                     {% endif %}
@@ -225,4 +216,43 @@
         const messageInput = document.getElementById("message");
         const counter = document.getElementById("counter");
 
-        backgroundVideo
+        backgroundVideo.volume = 0.25;
+
+        async function startWebsite() {
+            startButton.disabled = true;
+
+            backgroundVideo.muted = false;
+            backgroundVideo.volume = 0.25;
+
+            try {
+                await backgroundVideo.play();
+            } catch (error) {
+                console.error("Nie udało się uruchomić filmu:", error);
+            }
+
+            startScreen.classList.add("start-hidden");
+            document.body.classList.remove("locked");
+
+            window.setTimeout(function () {
+                startScreen.remove();
+            }, 800);
+        }
+
+        startButton.addEventListener("click", startWebsite);
+
+        document.addEventListener("keydown", function (event) {
+            if (
+                event.key === "Enter" &&
+                document.body.classList.contains("locked")
+            ) {
+                startWebsite();
+            }
+        });
+
+        messageInput.addEventListener("input", function () {
+            counter.textContent = messageInput.value.length + " / 300";
+        });
+    </script>
+
+</body>
+</html>
