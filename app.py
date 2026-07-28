@@ -25,7 +25,6 @@ def init_db():
 init_db()
 
 
-
 @app.route("/", methods=["GET", "POST"])
 def home():
 
@@ -34,23 +33,19 @@ def home():
         name = request.form["name"]
         message = request.form["message"]
 
-
         if len(name) > 25:
             name = name[:25]
 
         if len(message) > 300:
             message = message[:300]
 
-
         conn = sqlite3.connect("comments.db")
         cursor = conn.cursor()
 
-
         cursor.execute(
             """
-            INSERT INTO comments
-            (name,message,date)
-            VALUES (?,?,?)
+            INSERT INTO comments (name, message, date)
+            VALUES (?, ?, ?)
             """,
             (
                 name,
@@ -59,44 +54,26 @@ def home():
             )
         )
 
-
         conn.commit()
         conn.close()
 
-
         return redirect("/")
-
-
 
     conn = sqlite3.connect("comments.db")
     cursor = conn.cursor()
 
-
-    cursor.execute(
-        """
+    cursor.execute("""
         SELECT name,message,date
         FROM comments
         ORDER BY id DESC
-        """
-    )
-
+    """)
 
     comments = cursor.fetchall()
 
     conn.close()
 
-
-
-    return render_template(
-        "index.html",
-        comments=comments
-    )
-
+    return render_template("index.html", comments=comments)
 
 
 if __name__ == "__main__":
-
-    app.run(
-        host="0.0.0.0",
-        port=5000
-    )
+    app.run(host="0.0.0.0", port=5000)
