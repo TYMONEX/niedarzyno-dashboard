@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
-
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0"
     >
-
     <meta
         name="description"
         content="Oficjalna strona Niedarzyno"
@@ -16,21 +13,41 @@
 
     <title>Niedarzyno</title>
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css id="background-video"
+     }}"
+    >
+</head>
+
+<body class="locked">
+
+    <!-- Film w tle -->
+    <video
+        id="background-video"
         autoplay
         muted
         loop
         playsinline
         preload="auto"
     >
-        <source
-            src="{{ url_for('static', filename='edit.mp4') }}"
-            type -->
-    <div class="background-overlay"></div>
+         }}"
+            type="video/mp4"
+        >
+    </video>
 
-    <!-- EKRAN STARTOWY -->
+    <!-- Przyciemnienie filmu -->
+    <div class="background-overlay" aria-hidden="true"></div>
+
+    <!-- Przycisk dźwięku -->
+    <button
+        id="sound-button"
+        class="sound-button"
+        type="button"
+        aria-label="Wycisz dźwięk"
+        title="Wycisz dźwięk"
+    >
+        <span id="sound-icon" aria-hidden="true">🔊</span>
+    </button>
+
+    <!-- Ekran startowy -->
     <div id="start-screen">
 
         <div class="start-box">
@@ -57,15 +74,15 @@
 
     </div>
 
-    <!-- GŁÓWNA STRONA -->
+    <!-- Główna zawartość -->
     <main>
 
-        <!-- EKRAN GŁÓWNY -->
+        <!-- Sekcja główna -->
         <section class="hero">
 
             <div class="hero-content">
 
-                <!-- STATUS DISCORDA -->
+                <!-- Status Discorda -->
                 <div
                     id="discord-status"
                     class="status"
@@ -106,7 +123,7 @@
 
         </section>
 
-        <!-- SEKCJA KOMENTARZY -->
+        <!-- Sekcja komentarzy -->
         <section
             id="comments"
             class="comments-section"
@@ -132,7 +149,7 @@
 
             <div class="comments-grid">
 
-                <!-- FORMULARZ -->
+                <!-- Formularz komentarza -->
                 <div class="form-panel">
 
                     <p class="eyebrow">
@@ -199,7 +216,7 @@
 
                 </div>
 
-                <!-- LISTA KOMENTARZY -->
+                <!-- Lista komentarzy -->
                 <div class="comments-list">
 
                     {% if comments %}
@@ -274,6 +291,12 @@
         const video =
             document.getElementById("background-video");
 
+        const soundButton =
+            document.getElementById("sound-button");
+
+        const soundIcon =
+            document.getElementById("sound-icon");
+
         const message =
             document.getElementById("message");
 
@@ -291,49 +314,108 @@
 
 
         /*
-         * Ustawienie głośności filmu na 25%.
+         * Domyślna głośność filmu: 25%.
          */
         video.volume = 0.25;
 
 
         /*
-         * Ekran START i uruchomienie dźwięku.
+         * Aktualizuje ikonę i opis przycisku dźwięku.
          */
-        startButton.addEventListener("click", async function () {
-            startButton.disabled = true;
+        function updateSoundButton() {
+            const isMuted = video.muted;
 
-            video.muted = false;
-            video.volume = 0.25;
+            soundIcon.textContent = isMuted ? "🔇" : "🔊";
 
-            try {
-                await video.play();
-            } catch (error) {
-                console.error(
-                    "Nie udało się uruchomić filmu z dźwiękiem:",
-                    error
-                );
+            soundButton.setAttribute(
+                "aria-label",
+                isMuted ? "Włącz dźwięk" : "Wycisz dźwięk"
+            );
+
+            soundButton.setAttribute(
+                "title",
+                isMuted ? "Włącz dźwięk" : "Wycisz dźwięk"
+            );
+
+            soundButton.classList.toggle(
+                "muted",
+                isMuted
+            );
+        }
+
+
+        /*
+         * Kliknięcie START.
+         */
+        startButton.addEventListener(
+            "click",
+            async function () {
+                startButton.disabled = true;
+
+                video.muted = false;
+                video.volume = 0.25;
+
+                try {
+                    await video.play();
+                } catch (error) {
+                    console.error(
+                        "Nie udało się uruchomić filmu z dźwiękiem:",
+                        error
+                    );
+                }
+
+                updateSoundButton();
+
+                startScreen.classList.add("hidden");
+                document.body.classList.remove("locked");
+
+                window.setTimeout(function () {
+                    startScreen.remove();
+                }, 650);
             }
+        );
 
-            startScreen.classList.add("hidden");
-            document.body.classList.remove("locked");
 
-            window.setTimeout(function () {
-                startScreen.remove();
-            }, 650);
-        });
+        /*
+         * Wyciszanie i włączanie dźwięku.
+         */
+        soundButton.addEventListener(
+            "click",
+            async function () {
+                video.muted = !video.muted;
+
+                if (!video.muted) {
+                    video.volume = 0.25;
+
+                    try {
+                        await video.play();
+                    } catch (error) {
+                        console.error(
+                            "Nie udało się włączyć dźwięku:",
+                            error
+                        );
+                    }
+                }
+
+                updateSoundButton();
+            }
+        );
 
 
         /*
          * Licznik znaków komentarza.
          */
-        message.addEventListener("input", function () {
-            counter.textContent =
-                message.value.length + " / 300";
-        });
+        message.addEventListener(
+            "input",
+            function () {
+                counter.textContent =
+                    message.value.length + " / 300";
+            }
+        );
 
 
         /*
-         * Poprawna odmiana liczby osób.
+         * Poprawna odmiana liczby osób online.
          */
         function getOnlineText(count) {
             if (count === 1) {
@@ -346,7 +428,10 @@
             if (
                 lastDigit >= 2 &&
                 lastDigit <= 4 &&
-                !(lastTwoDigits >= 12 && lastTwoDigits <= 14)
+                !(
+                    lastTwoDigits >= 12 &&
+                    lastTwoDigits <= 14
+                )
             ) {
                 return count + " OSOBY ONLINE";
             }
@@ -356,7 +441,7 @@
 
 
         /*
-         * Pobieranie statusu Discorda.
+         * Pobieranie liczby osób online z widgetu Discorda.
          */
         async function updateDiscordStatus() {
             try {
@@ -412,13 +497,14 @@
 
 
         /*
-         * Pierwsze pobranie statusu.
+         * Pierwsze ustawienie ikony i statusu.
          */
+        updateSoundButton();
         updateDiscordStatus();
 
 
         /*
-         * Aktualizacja statusu co 60 sekund.
+         * Aktualizacja Discorda co 60 sekund.
          */
         window.setInterval(
             updateDiscordStatus,
@@ -427,5 +513,4 @@
     </script>
 
 </body>
-
 </html>
