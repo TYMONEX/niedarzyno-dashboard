@@ -1,154 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIEDARZYNO</title>
 
-<title>Niedarzyno</title>
-
-<link rel="stylesheet" href="/static/style.css">
-
+    {{ url_for('static', filename='style.css') }}
 </head>
-
 
 <body>
 
+    <div id="intro">
 
-<video id="bg" autoplay loop muted playsinline>
+        <div class="intro-box">
 
-<source src="/static/edit.mp4" type="video/mp4">
+            <h1>🕷️ NIEDARZYNO</h1>
 
-</video>
+            <p>Oficjalna strona społeczności</p>
 
+            <button id="enterBtn">
+                WEJDŹ
+            </button>
 
-<div class="overlay"></div>
+        </div>
 
+    </div>
 
+    <video autoplay muted loop playsinline id="bg-video">
+         }}" type="video/mp4">
+    </video>
 
-<div class="container">
+    <div class="overlay"></div>
 
+    <div class="main-container">
 
+        <div class="left-panel">
 
-<div class="card">
+            <div class="hero-card">
 
+                <h1>🕷️ NIEDARZYNO</h1>
 
-<h1>
-🕷️ NIEDARZYNO
-</h1>
+                <p>Witaj na oficjalnej stronie Niedarzyno</p>
 
+                <div class="status">
+                    🟢 ONLINE
+                </div>
 
-<p>
-Witaj na stronie Niedarzyno
-</p>
+                <a
+                    href="https://discord.gg/dkZPcMeqMD"
+                    target="_blank"
+                    class="discord-btn">
+                    💬 DISCORD
+                </a>
 
+            </div>
 
-<div class="status">
-🟢 ONLINE
-</div>
+            <div class="form-card">
 
+                <h2>✍️ Dodaj komentarz</h2>
 
+                <form method="POST">
 
-<a class="discord"
-href="https://discord.gg/dkZPcMeqMD"
-target="_blank">
+                    <input
+                        type="text"
+                        name="name"
+                        maxlength="25"
+                        placeholder="Twój nick"
+                        required>
 
-💬 DISCORD
+                    <textarea
+                        name="message"
+                        maxlength="300"
+                        placeholder="Napisz komentarz..."
+                        required></textarea>
 
-</a>
+                    <button type="submit">
+                        DODAJ KOMENTARZ
+                    </button>
 
+                </form>
 
+            </div>
 
+        </div>
 
-<h2>
-✍️ Napisz komentarz
-</h2>
+        <div class="comments-panel">
 
+            <h2>💬 Komentarze</h2>
 
+            <div class="comments">
 
-<form method="POST">
+                {% for comment in comments %}
 
+                <div class="comment">
 
-<input
-type="text"
-name="name"
-placeholder="Twój nick"
-maxlength="25"
-required>
+                    <div class="comment-header">
+                        👤 {{ comment[0] }}
+                    </div>
 
+                    <div class="comment-body">
+                        {{ comment[1] }}
+                    </div>
 
+                    <div class="comment-date">
+                        🕒 {{ comment[2] }}
+                    </div>
 
-<textarea
-name="message"
-placeholder="Napisz komentarz..."
-maxlength="300"
-required></textarea>
+                </div>
 
+                {% endfor %}
 
+            </div>
 
-<button type="submit">
-DODAJ KOMENTARZ
-</button>
+        </div>
 
+    </div>
 
+    <script>
 
-</form>
+        const enterBtn = document.getElementById("enterBtn");
+        const intro = document.getElementById("intro");
+        const video = document.getElementById("bg-video");
 
+        video.volume = 0.25;
 
-</div>
+        enterBtn.addEventListener("click", () => {
 
+            video.muted = false;
+            video.play();
 
+            intro.classList.add("hide");
 
+            setTimeout(() => {
+                intro.remove();
+            }, 700);
 
+        });
 
-<div class="comments-box">
-
-
-<h2>
-💬 Komentarze
-</h2>
-
-
-
-<div class="comments">
-
-
-{% for comment in comments %}
-
-
-<div class="comment">
-
-
-<h3>
-👤 {{comment[0]}}
-</h3>
-
-
-<p>
-{{comment[1]}}
-</p>
-
-
-<small>
-🕒 {{comment[2]}}
-</small>
-
-
-</div>
-
-
-{% endfor %}
-
-
-
-</div>
-
-
-</div>
-
-
-
-</div>
-
-
+    </script>
 
 </body>
 
