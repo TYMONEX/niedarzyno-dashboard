@@ -13,7 +13,7 @@
 <body>
 
 
-<video id="bg" loop>
+<video id="bg" autoplay loop muted playsinline>
 
 <source src="/static/edit.mp4" type="video/mp4">
 
@@ -24,63 +24,16 @@
 
 
 
-<!-- START PANEL -->
-
-<div id="start">
-
-<div class="start-box">
-
-
-<h1>
-🕷️ NIEDARZYNO
-</h1>
-
-
-<p id="loading">
-INITIALIZING SYSTEM...
-</p>
-
-
-
-<div class="bar">
-
-<div id="progress"></div>
-
-</div>
-
-
-<p id="percent">
-0%
-</p>
-
-
-
-<button id="enter" onclick="enter()">
-
-WEJDŹ
-
-</button>
-
-
-</div>
-
-</div>
-
-
-
-
-
-<!-- MAIN -->
-
 <div class="container">
+
 
 
 <div class="card">
 
 
-<h2>
+<h1>
 🕷️ NIEDARZYNO
-</h2>
+</h1>
 
 
 <p>
@@ -93,11 +46,16 @@ Witaj na stronie Niedarzyno
 </div>
 
 
+
 <a class="discord"
 href="https://discord.gg/dkZPcMeqMD"
 target="_blank">
+
 💬 DISCORD
+
 </a>
+
+
 
 
 <h2>
@@ -105,25 +63,31 @@ target="_blank">
 </h2>
 
 
+
 <form method="POST">
 
-<input 
-class="name-input"
+
+<input
 type="text"
 name="name"
 placeholder="Twój nick"
+maxlength="25"
 required>
+
 
 
 <textarea
 name="message"
 placeholder="Napisz komentarz..."
+maxlength="300"
 required></textarea>
 
 
-<button>
+
+<button type="submit">
 DODAJ KOMENTARZ
 </button>
+
 
 
 </form>
@@ -143,77 +107,6 @@ DODAJ KOMENTARZ
 </h2>
 
 
-<div class="comments">
-
-
-{% for comment in comments %}
-
-<div class="comment">
-
-<h3>
-👤 {{comment[0]}}
-</h3>
-
-<p>
-{{comment[1]}}
-</p>
-
-<small>
-🕒 {{comment[2]}}
-</small>
-
-</div>
-
-
-{% endfor %}
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<a class="discord"
-href="https://discord.gg/dkZPcMeqMD"
-target="_blank">
-
-💬 DISCORD
-
-</a>
-
-<h2>
-💬 Komentarze
-</h2>
-
-
-<form method="POST">
-
-<input 
-class="name-input"
-type="text"
-name="name"
-placeholder="Twój nick"
-required>
-
-
-<textarea
-name="message"
-placeholder="Napisz komentarz..."
-required></textarea>
-
-
-<button>
-DODAJ KOMENTARZ
-</button>
-
-
-</form>
-
-
 
 <div class="comments">
 
@@ -245,103 +138,16 @@ DODAJ KOMENTARZ
 {% endfor %}
 
 
-</div>
-
 
 </div>
 
 
+</div>
 
 
 
-<script>
+</div>
 
-
-let progress = 0;
-
-let bar = document.getElementById("progress");
-
-let percent = document.getElementById("percent");
-
-let loading = document.getElementById("loading");
-
-let btn = document.getElementById("enter");
-
-
-
-btn.style.display="none";
-
-
-
-let load = setInterval(()=>{
-
-
-progress += Math.floor(Math.random()*10)+5;
-
-
-
-if(progress >= 100){
-
-progress=100;
-
-clearInterval(load);
-
-
-loading.innerHTML="SYSTEM READY";
-
-btn.style.display="inline-block";
-
-
-}
-
-
-
-bar.style.width=progress+"%";
-
-percent.innerHTML=progress+"%";
-
-
-},300);
-
-
-
-
-
-
-function enter(){
-
-
-let start=document.getElementById("start");
-
-
-start.style.animation="fadeout 1s";
-
-
-
-let video=document.getElementById("bg");
-
-
-video.volume=0.3;
-
-video.muted=false;
-
-video.play();
-
-
-
-setTimeout(()=>{
-
-start.style.display="none";
-
-},1000);
-
-
-
-}
-
-
-
-</script>
 
 
 </body>
