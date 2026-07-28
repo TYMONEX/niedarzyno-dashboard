@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Product+Sans&display=swap');
+
 *{
 
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Product Sans', Arial, sans-serif;
 
 }
 
@@ -91,11 +93,8 @@ font-size:70px;
 
 font-weight:900;
 
-text-shadow:
-5px 0 red,
--5px 0 cyan;
-
-animation:glitch .8s infinite;
+text-shadow:none;
+animation:none;
 
 }
 
