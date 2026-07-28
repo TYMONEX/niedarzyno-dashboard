@@ -225,10 +225,7 @@ box-shadow:
 
 font-size:55px;
 
-text-shadow:
-
-3px 0 red,
--3px 0 cyan;
+text-shadow:none;
 
 }
 
