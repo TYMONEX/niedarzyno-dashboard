@@ -1,145 +1,193 @@
 <!DOCTYPE html>
 <html lang="pl">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIEDARZYNO</title>
 
-    {{ url_for('static', filename='style.css') }}
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Oficjalna strona Niedarzyno"
+    >
+
+    <title>Niedarzyno</title>
+
+     }}"
+    >
 </head>
 
-<body>
+<body class="intro-open">
 
-    <div id="intro">
+    <!-- FILM PEŁNOEKRANOWY W TLE -->
+    <video
+        id="background-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+    >
+         }}"
+            type="video/mp4"
+        >
 
-        <div class="intro-box">
-
-            <h1>🕷️ NIEDARZYNO</h1>
-
-            <p>Oficjalna strona społeczności</p>
-
-            <button id="enterBtn">
-                WEJDŹ
-            </button>
-
-        </div>
-
-    </div>
-
-    <video autoplay muted loop playsinline id="bg-video">
-         }}" type="video/mp4">
+        Twoja przeglądarka nie obsługuje filmów HTML5.
     </video>
 
-    <div class="overlay"></div>
+    <!-- PRZYCIEMNIENIE FILMU -->
+    <div class="video-overlay"></div>
 
-    <div class="main-container">
+    <!-- EKRAN STARTOWY -->
+    <div id="intro" class="intro">
+        <div class="intro-glow"></div>
 
-        <div class="left-panel">
+        <div class="intro-content">
+            <div class="intro-spider">🕷️</div>
 
-            <div class="hero-card">
+            <h1>NIEDARZYNO</h1>
 
-                <h1>🕷️ NIEDARZYNO</h1>
+            <p>Kliknij, aby wejść na stronę</p>
 
-                <p>Witaj na oficjalnej stronie Niedarzyno</p>
-
-                <div class="status">
-                    🟢 ONLINE
-                </div>
-
-                <a
-                    href="https://discord.gg/dkZPcMeqMD"
-                    target="_blank"
-                    class="discord-btn">
-                    💬 DISCORD
-                </a>
-
-            </div>
-
-            <div class="form-card">
-
-                <h2>✍️ Dodaj komentarz</h2>
-
-                <form method="POST">
-
-                    <input
-                        type="text"
-                        name="name"
-                        maxlength="25"
-                        placeholder="Twój nick"
-                        required>
-
-                    <textarea
-                        name="message"
-                        maxlength="300"
-                        placeholder="Napisz komentarz..."
-                        required></textarea>
-
-                    <button type="submit">
-                        DODAJ KOMENTARZ
-                    </button>
-
-                </form>
-
-            </div>
-
+            <button id="enter-button" type="button">
+                WEJDŹ
+            </button>
         </div>
-
-        <div class="comments-panel">
-
-            <h2>💬 Komentarze</h2>
-
-            <div class="comments">
-
-                {% for comment in comments %}
-
-                <div class="comment">
-
-                    <div class="comment-header">
-                        👤 {{ comment[0] }}
-                    </div>
-
-                    <div class="comment-body">
-                        {{ comment[1] }}
-                    </div>
-
-                    <div class="comment-date">
-                        🕒 {{ comment[2] }}
-                    </div>
-
-                </div>
-
-                {% endfor %}
-
-            </div>
-
-        </div>
-
     </div>
 
+    <!-- GŁÓWNA STRONA -->
+    <main class="page">
+
+        <section class="profile-card">
+            <div class="spider-icon">🕷️</div>
+
+            <h1>NIEDARZYNO</h1>
+
+            <p class="subtitle">
+                Witaj na oficjalnej stronie Niedarzyno
+            </p>
+
+            <div class="status">
+                <span class="status-dot"></span>
+                ONLINE
+            </div>
+
+            <a
+                class="discord-button"
+                href="https://discord.gg/dkZPcMeqMD"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                💬 DISCORD
+            </a>
+
+            <div class="divider"></div>
+
+            <h2>✍️ Napisz komentarz</h2>
+
+             }}">
+                <label for="name" class="sr-only">
+                    Twój nick
+                </label>
+
+                <input
+                    id="name"
+                    type="text"
+                    name="name"
+                    placeholder="Twój nick"
+                    maxlength="25"
+                    autocomplete="nickname"
+                    required
+                >
+
+                <label for="message" class="sr-only">
+                    Treść komentarza
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Napisz komentarz..."
+                    maxlength="300"
+                    required
+                ></textarea>
+
+                <div class="form-footer">
+                    <span id="character-count">0 / 300</span>
+                </div>
+
+                <button class="submit-button" type="submit">
+                    DODAJ KOMENTARZ
+                </button>
+            </form>
+        </section>
+
+        <section class="comments-panel">
+            <div class="comments-heading">
+                <div>
+                    <span class="section-label">
+                        SPOŁECZNOŚĆ
+                    </span>
+
+                    <h2>💬 Komentarze</h2>
+                </div>
+
+                <span class="comments-count">
+                    {{ comments|length }}
+                </span>
+            </div>
+
+            <div class="comments-list">
+
+                {% if comments %}
+
+                    {% for comment in comments %}
+
+                        <article class="comment">
+                            <div class="comment-top">
+                                <div class="avatar">
+                                    {{ comment["name"][0]|upper }}
+                                </div>
+
+                                <div class="comment-author">
+                                    <h3>
+                                        {{ comment["name"] }}
+                                    </h3>
+
+                                    <time>
+                                        🕒 {{ comment["date"] }}
+                                    </time>
+                                </div>
+                            </div>
+
+                            <p class="comment-message">
+                                {{ comment["message"] }}
+                            </p>
+                        </article>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <div class="empty-comments">
+                        <div class="empty-icon">💬</div>
+
+                        <h3>Brak komentarzy</h3>
+
+                        <p>
+                            Napisz pierwszy komentarz i rozpocznij rozmowę.
+                        </p>
+                    </div>
+
+                {% endif %}
+
+            </div>
+        </section>
+
+    </main>
+
     <script>
-
-        const enterBtn = document.getElementById("enterBtn");
         const intro = document.getElementById("intro");
-        const video = document.getElementById("bg-video");
-
-        video.volume = 0.25;
-
-        enterBtn.addEventListener("click", () => {
-
-            video.muted = false;
-            video.play();
-
-            intro.classList.add("hide");
-
-            setTimeout(() => {
-                intro.remove();
-            }, 700);
-
-        });
-
-    </script>
-
-</body>
-
-</html>
+        const enterButton = document
