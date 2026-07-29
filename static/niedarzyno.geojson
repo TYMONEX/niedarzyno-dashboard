@@ -1,4 +1,22 @@
 {
+  "type": "Feature",
+  "properties": {
+    "name": "O'Block",
+    "description": "Dzielnica Osiek. Szczegółowa dokumentacja pozostaje niejawna.",
+    "styleUrl": "#icon-1588-000000",
+    "color": "#55555f",
+    "kind": "punkt",
+    "category": "MIEJSCE"
+  },
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      17.4095273,
+      54.2260479
+    ]
+  }
+}
+{
   "type": "FeatureCollection",
   "name": "Niedarzyno",
   "features": [
