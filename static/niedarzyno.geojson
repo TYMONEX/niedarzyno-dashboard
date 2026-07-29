@@ -1,0 +1,1042 @@
+{
+  "type": "FeatureCollection",
+  "name": "Niedarzyno",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Remiza",
+        "description": "Uwaga na lokalnych bywalców\nMożliwe spotkanie mieszkańców",
+        "styleUrl": "#icon-1790-A52714",
+        "color": "#a52714",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4280518,
+          54.2202158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Przystanek",
+        "description": "Można spotkać lokalnych mieszkańców",
+        "styleUrl": "#icon-1532-0288D1",
+        "color": "#0288d1",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4280621,
+          54.2199783
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Szwedzki szałas",
+        "description": "",
+        "styleUrl": "#icon-1767-4E342E-nodesc",
+        "color": "#6d4c41",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4403289,
+          54.2167899
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tunel Czasoprzestrzenny A",
+        "description": "",
+        "styleUrl": "#icon-1803-673AB7-nodesc",
+        "color": "#673ab7",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4379509,
+          54.2119009
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tunel Czasoprzestrzenny B",
+        "description": "",
+        "styleUrl": "#icon-1803-673AB7-nodesc",
+        "color": "#673ab7",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4465448,
+          54.2043838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa III - Strefa Niestabilna",
+        "description": "Zagrożenia: nieprzewidywalna aktywność w okolicy",
+        "styleUrl": "#poly-E65100-1889-46",
+        "color": "#e65100",
+        "kind": "obszar",
+        "category": "III"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4287327,
+              54.2205488
+            ],
+            [
+              17.4281788,
+              54.2203959
+            ],
+            [
+              17.428396,
+              54.220181
+            ],
+            [
+              17.4287152,
+              54.2202688
+            ],
+            [
+              17.4289451,
+              54.2203812
+            ],
+            [
+              17.4287327,
+              54.2205488
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa N: Strefa Niesklasyfikowana",
+        "description": "",
+        "styleUrl": "#poly-880E4F-1200-77-nodesc",
+        "color": "#880e4f",
+        "kind": "obszar",
+        "category": "N"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4410635,
+              54.2161119
+            ],
+            [
+              17.4470072,
+              54.2113438
+            ],
+            [
+              17.4500113,
+              54.2120465
+            ],
+            [
+              17.4542599,
+              54.2076544
+            ],
+            [
+              17.4578005,
+              54.2085203
+            ],
+            [
+              17.4566847,
+              54.2109297
+            ],
+            [
+              17.4559122,
+              54.2108544
+            ],
+            [
+              17.4553972,
+              54.2115571
+            ],
+            [
+              17.4543672,
+              54.211256
+            ],
+            [
+              17.4512773,
+              54.2146188
+            ],
+            [
+              17.4503332,
+              54.2144431
+            ],
+            [
+              17.4487024,
+              54.2158986
+            ],
+            [
+              17.4474579,
+              54.2157982
+            ],
+            [
+              17.4461275,
+              54.2169777
+            ],
+            [
+              17.4443036,
+              54.2175172
+            ],
+            [
+              17.4410635,
+              54.2161119
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa I: Strefa Bezpieczna",
+        "description": "Plac Zabaw",
+        "styleUrl": "#poly-558B2F-1200-77",
+        "color": "#55a868",
+        "kind": "obszar",
+        "category": "I"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4314902,
+              54.2186402
+            ],
+            [
+              17.4309549,
+              54.2193345
+            ],
+            [
+              17.4306131,
+              54.2192424
+            ],
+            [
+              17.4311871,
+              54.2185304
+            ],
+            [
+              17.4314902,
+              54.2186402
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa II: Strefa Umiarkowanego Zagrożenia",
+        "description": "Nie stwierdzono bezpośredniego zagrożenia, zaleca się jednak zachować ostrożność.",
+        "styleUrl": "#poly-FBC02D-1200-36",
+        "color": "#fbc02d",
+        "kind": "obszar",
+        "category": "II"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4309523,
+              54.2193345
+            ],
+            [
+              17.4307465,
+              54.2196258
+            ],
+            [
+              17.4304272,
+              54.2198599
+            ],
+            [
+              17.4298264,
+              54.2200606
+            ],
+            [
+              17.4290539,
+              54.2201986
+            ],
+            [
+              17.4285711,
+              54.2201296
+            ],
+            [
+              17.4281597,
+              54.2200179
+            ],
+            [
+              17.4281895,
+              54.2199924
+            ],
+            [
+              17.4280011,
+              54.2199304
+            ],
+            [
+              17.4279803,
+              54.2199563
+            ],
+            [
+              17.4271764,
+              54.2197344
+            ],
+            [
+              17.4270261,
+              54.2194145
+            ],
+            [
+              17.4256898,
+              54.2192496
+            ],
+            [
+              17.4252607,
+              54.219168
+            ],
+            [
+              17.4251587,
+              54.2191022
+            ],
+            [
+              17.4250944,
+              54.2188167
+            ],
+            [
+              17.4250622,
+              54.2187164
+            ],
+            [
+              17.4250783,
+              54.2184686
+            ],
+            [
+              17.4249817,
+              54.2181298
+            ],
+            [
+              17.4248208,
+              54.2177974
+            ],
+            [
+              17.4248852,
+              54.2177597
+            ],
+            [
+              17.4253411,
+              54.2177534
+            ],
+            [
+              17.4264623,
+              54.2178036
+            ],
+            [
+              17.4279113,
+              54.2179192
+            ],
+            [
+              17.4286301,
+              54.2180196
+            ],
+            [
+              17.4294455,
+              54.21812
+            ],
+            [
+              17.4303038,
+              54.2182705
+            ],
+            [
+              17.4311845,
+              54.2185304
+            ],
+            [
+              17.4306105,
+              54.2192424
+            ],
+            [
+              17.4309523,
+              54.2193345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa IV: Strefa Krytyczna",
+        "description": "",
+        "styleUrl": "#poly-A52714-1200-77-nodesc",
+        "color": "#a52714",
+        "kind": "obszar",
+        "category": "IV"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4089058,
+              54.2253998
+            ],
+            [
+              17.4111696,
+              54.2252556
+            ],
+            [
+              17.4119957,
+              54.226441
+            ],
+            [
+              17.4100109,
+              54.2268737
+            ],
+            [
+              17.4089058,
+              54.2253998
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa IV: Strefa Krytyczna",
+        "description": "Główne Zagrożenia:\n-Dyrektorka\n-Kapeluch\n-Grzyb na suficie",
+        "styleUrl": "#poly-A52714-1200-77",
+        "color": "#a52714",
+        "kind": "obszar",
+        "category": "IV"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4196239,
+              54.2234133
+            ],
+            [
+              17.4203911,
+              54.2242883
+            ],
+            [
+              17.4197902,
+              54.2244357
+            ],
+            [
+              17.4202026,
+              54.2249496
+            ],
+            [
+              17.4197037,
+              54.2250719
+            ],
+            [
+              17.4186148,
+              54.2238206
+            ],
+            [
+              17.4196239,
+              54.2234133
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "-PLACÓWKA EDUKACYJNA-",
+        "description": "Oficjalnie odbywają się tutaj lekcje.\n\nNieoficjalnie to obóz pracy.\n\nGłówne zagrożenia:\n-Pani Kierownik. Główny koordynator placówki, Jeśli nie jesteś z tej szkoły obiekt ten może się pojawić za twoimi plecami.\n\n-Kapeluch. Obiekt ten Sam w sobie nie jest zagrożeniem. Można go zaobserwować na balkonie. Informuje o wszystkim Panią kierownik.",
+        "styleUrl": "#icon-1726-4E342E",
+        "color": "#4e342e",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4194409,
+          54.2239429
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa V: Strefa Utajniona",
+        "description": "Dokumentacja została usunięta.",
+        "styleUrl": "#poly-000000-1200-99",
+        "color": "#17171d",
+        "kind": "obszar",
+        "category": "V"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4236492,
+              54.2169636
+            ],
+            [
+              17.421718,
+              54.2184942
+            ],
+            [
+              17.419465,
+              54.2180928
+            ],
+            [
+              17.4185208,
+              54.2176285
+            ],
+            [
+              17.4178771,
+              54.2168632
+            ],
+            [
+              17.4189929,
+              54.2146173
+            ],
+            [
+              17.4209885,
+              54.2151066
+            ],
+            [
+              17.4204091,
+              54.2161606
+            ],
+            [
+              17.4220184,
+              54.216399
+            ],
+            [
+              17.4224047,
+              54.2158469
+            ],
+            [
+              17.4236492,
+              54.2169636
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa III: Strefa niebezpieczna",
+        "description": "strefa niebezpieczna zwłaszcza w nocy",
+        "styleUrl": "#poly-E65100-1200-77",
+        "color": "#e65100",
+        "kind": "obszar",
+        "category": "III"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4279667,
+              54.219971
+            ],
+            [
+              17.4280024,
+              54.2199304
+            ],
+            [
+              17.4281908,
+              54.2199924
+            ],
+            [
+              17.4281437,
+              54.2200314
+            ],
+            [
+              17.4279667,
+              54.219971
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Arena Cheseisengen",
+        "description": "Obiekt niebezpieczny\n\nMiejsce częstych spotkań lokalnych grup.\n\nPotencjalne zagrożenia:\n-nieprzewidywalni bywalcy\n-aktywność w pobliżu areny\n\nZalecenia:\n-Trzymać się nisko aby nie zostać wykrytym przez radar.",
+        "styleUrl": "#icon-1641-3949AB",
+        "color": "#3949ab",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4210353,
+          54.2225628
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa IV: Strefa Krytyczna",
+        "description": "",
+        "styleUrl": "#poly-A52714-1200-77-nodesc",
+        "color": "#a52714",
+        "kind": "obszar",
+        "category": "IV"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4209522,
+              54.2228169
+            ],
+            [
+              17.4206223,
+              54.2225142
+            ],
+            [
+              17.4210327,
+              54.2223072
+            ],
+            [
+              17.4214833,
+              54.2226334
+            ],
+            [
+              17.4209522,
+              54.2228169
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Strefa I: Strefa Bezpieczna",
+        "description": "Tu się nic nigdy nie dzieje",
+        "styleUrl": "#poly-7CB342-1200-77",
+        "color": "#7cb342",
+        "kind": "obszar",
+        "category": "I"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4248852,
+              54.2177597
+            ],
+            [
+              17.4248208,
+              54.2177974
+            ],
+            [
+              17.4247256,
+              54.2178458
+            ],
+            [
+              17.4246491,
+              54.2176851
+            ],
+            [
+              17.424861,
+              54.217711
+            ],
+            [
+              17.4248852,
+              54.2177597
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baza",
+        "description": "",
+        "styleUrl": "#icon-1751-4E342E-nodesc",
+        "color": "#5d4037",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.420705,
+          54.2170858
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa N: Strefa Niesklasyfikowana",
+        "description": "Na Hercie Pływa potwór i ryby mądrzejsze niż ludzie",
+        "styleUrl": "#poly-880E4F-1200-77",
+        "color": "#880e4f",
+        "kind": "obszar",
+        "category": "N"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.3945824,
+              54.2175815
+            ],
+            [
+              17.3949097,
+              54.2174121
+            ],
+            [
+              17.3954193,
+              54.2171424
+            ],
+            [
+              17.3956768,
+              54.2169103
+            ],
+            [
+              17.3957518,
+              54.2165777
+            ],
+            [
+              17.3953978,
+              54.2161386
+            ],
+            [
+              17.3946575,
+              54.2157936
+            ],
+            [
+              17.3940513,
+              54.2155834
+            ],
+            [
+              17.3933808,
+              54.2154611
+            ],
+            [
+              17.3923401,
+              54.2153419
+            ],
+            [
+              17.3920021,
+              54.2152478
+            ],
+            [
+              17.3916212,
+              54.2151161
+            ],
+            [
+              17.3912994,
+              54.2149529
+            ],
+            [
+              17.3917715,
+              54.2146079
+            ],
+            [
+              17.3923401,
+              54.214727
+            ],
+            [
+              17.3931447,
+              54.214633
+            ],
+            [
+              17.3944108,
+              54.2145326
+            ],
+            [
+              17.3948721,
+              54.2142378
+            ],
+            [
+              17.396063,
+              54.2135664
+            ],
+            [
+              17.3979996,
+              54.2121423
+            ],
+            [
+              17.3965321,
+              54.2118521
+            ],
+            [
+              17.3959527,
+              54.2107353
+            ],
+            [
+              17.3974762,
+              54.210133
+            ],
+            [
+              17.3994503,
+              54.210384
+            ],
+            [
+              17.3991714,
+              54.2110365
+            ],
+            [
+              17.401875,
+              54.2117518
+            ],
+            [
+              17.4021325,
+              54.2115761
+            ],
+            [
+              17.4027977,
+              54.2117016
+            ],
+            [
+              17.4032912,
+              54.2108985
+            ],
+            [
+              17.4066386,
+              54.2129187
+            ],
+            [
+              17.4096642,
+              54.2135085
+            ],
+            [
+              17.4106286,
+              54.213639
+            ],
+            [
+              17.4111865,
+              54.2141158
+            ],
+            [
+              17.4118303,
+              54.2142664
+            ],
+            [
+              17.4124096,
+              54.2135763
+            ],
+            [
+              17.4129461,
+              54.2137645
+            ],
+            [
+              17.4130319,
+              54.2135763
+            ],
+            [
+              17.4166582,
+              54.2146679
+            ],
+            [
+              17.4154351,
+              54.2156466
+            ],
+            [
+              17.4145125,
+              54.2153956
+            ],
+            [
+              17.4142764,
+              54.2164621
+            ],
+            [
+              17.4126671,
+              54.2176917
+            ],
+            [
+              17.4114869,
+              54.2173028
+            ],
+            [
+              17.4097918,
+              54.2176164
+            ],
+            [
+              17.4096845,
+              54.2172902
+            ],
+            [
+              17.4081395,
+              54.2175161
+            ],
+            [
+              17.4060152,
+              54.2166503
+            ],
+            [
+              17.4045346,
+              54.217905
+            ],
+            [
+              17.4028395,
+              54.2177419
+            ],
+            [
+              17.402346,
+              54.2179928
+            ],
+            [
+              17.399299,
+              54.2168385
+            ],
+            [
+              17.3988698,
+              54.2169515
+            ],
+            [
+              17.3984836,
+              54.2168511
+            ],
+            [
+              17.3983763,
+              54.2166253
+            ],
+            [
+              17.3970674,
+              54.2165876
+            ],
+            [
+              17.3964666,
+              54.2168135
+            ],
+            [
+              17.3956083,
+              54.2173906
+            ],
+            [
+              17.3945824,
+              54.2175815
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa II: Strefa Umiarkowanego Niebezpieczeństwa",
+        "description": "Do jeziora spływają zanieczyszczenia z okolicznych terenów.",
+        "styleUrl": "#poly-F9A825-1200-77",
+        "color": "#f9a825",
+        "kind": "obszar",
+        "category": "II"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4184921,
+              54.207158
+            ],
+            [
+              17.4177625,
+              54.2078733
+            ],
+            [
+              17.416518,
+              54.208187
+            ],
+            [
+              17.4154022,
+              54.2080615
+            ],
+            [
+              17.414501,
+              54.2076851
+            ],
+            [
+              17.4143079,
+              54.2071956
+            ],
+            [
+              17.4138358,
+              54.2068191
+            ],
+            [
+              17.4136427,
+              54.206405
+            ],
+            [
+              17.4140504,
+              54.2059908
+            ],
+            [
+              17.4148443,
+              54.2058779
+            ],
+            [
+              17.4160245,
+              54.2059908
+            ],
+            [
+              17.4169042,
+              54.2062669
+            ],
+            [
+              17.417548,
+              54.2067062
+            ],
+            [
+              17.4181488,
+              54.2069195
+            ],
+            [
+              17.4184921,
+              54.207158
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
