@@ -34,6 +34,7 @@ if DATABASE_URL.startswith("postgres://"):
         "postgresql+psycopg://",
         1
     )
+
 elif DATABASE_URL.startswith("postgresql://"):
     DATABASE_URL = DATABASE_URL.replace(
         "postgresql://",
@@ -41,7 +42,10 @@ elif DATABASE_URL.startswith("postgresql://"):
         1
     )
 
-engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+engine = create_engine(
+    DATABASE_URL,
+    pool_pre_ping=True
+)
 metadata = MetaData()
 
 comments = Table(
