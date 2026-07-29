@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Panel administracji | Niedarzyno</title>
+    <link rel="stylesheet" href="/static/admin.css">
+</head>
+<body>
+    <div class="background"></div>
+
+    {% if not logged_in %}
+        <main class="login-page">
+            <section class="login-card">
+                <p class="eyebrow">STREFA ZASTRZEŻONA</p>
+                <h1>Panel administracji</h1>
+                <p class="description">Dostęp wyłącznie dla administracji Niedarzyna.</p>
+
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% for category, message in messages %}
+                        <div class="alert {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endwith %}
+
+                <form method="POST" action="/admin">
+                    <label for="password">HASŁO</label>
+                    <input id="password" name="password" type="password"
+                           placeholder="Wpisz hasło" required autofocus>
+                    <button type="submit">WEJDŹ DO PANELU</button>
+                </form>
+
+                <a class="back-link" href="/">← Wróć na stronę</a>
+            </section>
+        </main>
+    {% else %}
+        <main class="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">NIEDARZYNO // ADMIN</p>
+                    <h1>Moderacja komentarzy</h1>
+                </div>
+
+                <div class="top-actions">
+                    <a href="/" target="_blank">OTWÓRZ STRONĘ</a>
+                    <form method="POST" action="/admin/logout">
+                        <button class="logout-button" type="submit">WYLOGUJ</button>
+                    </form>
+                </div>
+            </header>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endwith %}
+
+            <section class="stats">
+                <article>
+                    <span>KOMENTARZE</span>
+                    <strong>{{ comments|length }}</strong>
+                </article>
+                <article>
+                    <span>SERDUSZKA</span>
+                    <strong>{{ total_likes }}</strong>
+                </article>
+            </section>
+
+            <section class="comments-panel">
+                {% if comments %}
+                    {% for comment in comments %}
+                        <article class="comment-card">
+                            <div class="comment-main">
+                                <div class="avatar">{{ comment["name"][0]|upper }}</div>
+                                <div class="comment-content">
+                                    <div class="comment-heading">
+                                        <h2>{{ comment["name"] }}</h2>
+                                        <time>{{ comment["date"] }}</time>
+                                    </div>
+                                    <p>{{ comment["message"] }}</p>
+                                    <span class="likes">♥ {{ comment["likes"] }}</span>
+                                </div>
+                            </div>
+
+                            <form method="POST" action="/admin/delete/{{ comment['id'] }}"
+                                  onsubmit="return confirm('Na pewno usunąć ten komentarz?');">
+                                <button class="delete-button" type="submit">USUŃ</button>
+                            </form>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <div class="empty-state">
+                        <span>✦</span>
+                        <h2>Brak komentarzy</h2>
+                        <p>Szwedowa nie ma dziś nic do moderowania.</p>
+                    </div>
+                {% endif %}
+            </section>
+        </main>
+    {% endif %}
+</body>
+</html>
