@@ -1,22 +1,4 @@
 {
-  "type": "Feature",
-  "properties": {
-    "name": "O'Block",
-    "description": "Dzielnica Osiek. Szczegółowa dokumentacja pozostaje niejawna.",
-    "styleUrl": "#icon-1588-000000",
-    "color": "#55555f",
-    "kind": "punkt",
-    "category": "MIEJSCE"
-  },
-  "geometry": {
-    "type": "Point",
-    "coordinates": [
-      17.4095273,
-      54.2260479
-    ]
-  }
-}
-{
   "type": "FeatureCollection",
   "name": "Niedarzyno",
   "features": [
@@ -24,7 +6,7 @@
       "type": "Feature",
       "properties": {
         "name": "Remiza",
-        "description": "Uwaga na lokalnych bywalców\nMożliwe spotkanie mieszkańców",
+        "description": "uwaga na Antona\nSzansa na spotkanie Radka",
         "styleUrl": "#icon-1790-A52714",
         "color": "#a52714",
         "kind": "punkt",
@@ -42,7 +24,7 @@
       "type": "Feature",
       "properties": {
         "name": "Przystanek",
-        "description": "Można spotkać lokalnych mieszkańców",
+        "description": "Można spotkać NMK i radka",
         "styleUrl": "#icon-1532-0288D1",
         "color": "#0288d1",
         "kind": "punkt",
@@ -114,7 +96,7 @@
       "type": "Feature",
       "properties": {
         "name": "Klasa III - Strefa Niestabilna",
-        "description": "Zagrożenia: nieprzewidywalna aktywność w okolicy",
+        "description": "Zagrożenia: Anton i Udin",
         "styleUrl": "#poly-E65100-1889-46",
         "color": "#e65100",
         "kind": "obszar",
@@ -616,7 +598,7 @@
       "type": "Feature",
       "properties": {
         "name": "Arena Cheseisengen",
-        "description": "Obiekt niebezpieczny\n\nMiejsce częstych spotkań lokalnych grup.\n\nPotencjalne zagrożenia:\n-nieprzewidywalni bywalcy\n-aktywność w pobliżu areny\n\nZalecenia:\n-Trzymać się nisko aby nie zostać wykrytym przez radar.",
+        "description": "Obiekt niebezpieczny\n\nPotencjalne zagrożenia:\n-Brzoza\n-Brat Brzozy\n\nZalecenia:\n-Trzymać się nisko aby nie zostać wykrytym przez radar.",
         "styleUrl": "#icon-1641-3949AB",
         "color": "#3949ab",
         "kind": "punkt",
@@ -663,6 +645,150 @@
             [
               17.4209522,
               54.2228169
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "O'Block",
+        "description": "...",
+        "styleUrl": "#icon-1588-000000",
+        "color": "#55555f",
+        "kind": "punkt",
+        "category": "MIEJSCE"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          17.4095273,
+          54.2260479
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Klasa II: Strefa Umiarkowanego Zagrożenia",
+        "description": "Mieszkanie niedarzyniaków",
+        "styleUrl": "#poly-F9A825-1200-48",
+        "color": "#f9a825",
+        "kind": "obszar",
+        "category": "II"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              17.4243492,
+              54.220386
+            ],
+            [
+              17.4248206,
+              54.2198778
+            ],
+            [
+              17.4252766,
+              54.2197335
+            ],
+            [
+              17.4257326,
+              54.2197116
+            ],
+            [
+              17.426545,
+              54.2197105
+            ],
+            [
+              17.4270171,
+              54.2197795
+            ],
+            [
+              17.428396,
+              54.220181
+            ],
+            [
+              17.4281788,
+              54.2203959
+            ],
+            [
+              17.4287327,
+              54.2205488
+            ],
+            [
+              17.4289451,
+              54.2203812
+            ],
+            [
+              17.429424,
+              54.2206526
+            ],
+            [
+              17.4300355,
+              54.2213708
+            ],
+            [
+              17.4301857,
+              54.22165
+            ],
+            [
+              17.430057,
+              54.2221392
+            ],
+            [
+              17.429542,
+              54.2222239
+            ],
+            [
+              17.4295205,
+              54.2220859
+            ],
+            [
+              17.428748,
+              54.2220169
+            ],
+            [
+              17.427643,
+              54.2220044
+            ],
+            [
+              17.4280936,
+              54.2208816
+            ],
+            [
+              17.4278683,
+              54.2208126
+            ],
+            [
+              17.4273533,
+              54.2216719
+            ],
+            [
+              17.4269671,
+              54.2215967
+            ],
+            [
+              17.4270529,
+              54.2214085
+            ],
+            [
+              17.4263662,
+              54.2211513
+            ],
+            [
+              17.4264199,
+              54.2209631
+            ],
+            [
+              17.4255401,
+              54.2208377
+            ],
+            [
+              17.4243492,
+              54.220386
             ]
           ]
         ]
@@ -982,7 +1108,7 @@
       "type": "Feature",
       "properties": {
         "name": "Klasa II: Strefa Umiarkowanego Niebezpieczeństwa",
-        "description": "Do jeziora spływają zanieczyszczenia z okolicznych terenów.",
+        "description": "Do tego jeziora srają konie",
         "styleUrl": "#poly-F9A825-1200-77",
         "color": "#f9a825",
         "kind": "obszar",
