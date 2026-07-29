@@ -67,8 +67,11 @@ fetch("/static/niedarzyno.geojson")
             }
         });
 
-        if (allBounds.isValid()) map.fitBounds(allBounds.pad(.08));
-        else map.setView([54.219, 17.428], 14);
+        window.setTimeout(() => {
+            map.invalidateSize();
+            if (allBounds.isValid()) map.fitBounds(allBounds.pad(.08));
+            else map.setView([54.219, 17.428], 14);
+        }, 150);
     })
     .catch(error => {
         console.error(error);
@@ -94,3 +97,6 @@ document.querySelectorAll(".filter").forEach(button => {
 document.getElementById("fit-map").addEventListener("click", () => {
     if (allBounds.isValid()) map.fitBounds(allBounds.pad(.08));
 });
+
+
+window.addEventListener("resize", () => map.invalidateSize());
