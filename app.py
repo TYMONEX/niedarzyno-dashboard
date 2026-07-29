@@ -23,11 +23,23 @@ from sqlalchemy.exc import IntegrityError
 app = Flask(__name__)
 
 # Render ustawi DATABASE_URL. Lokalnie aplikacja użyje SQLite.
-DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///comments.db")
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL",
+    "sqlite:///comments.db"
+)
 
-# Starsze platformy czasami zwracają postgres:// zamiast postgresql://.
 if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgres://",
+        "postgresql+psycopg://",
+        1
+    )
+elif DATABASE_URL.startswith("postgresql://"):
+    DATABASE_URL = DATABASE_URL.replace(
+        "postgresql://",
+        "postgresql+psycopg://",
+        1
+    )
 
 engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 metadata = MetaData()
